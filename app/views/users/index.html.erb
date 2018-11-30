@@ -1,1 +1,26 @@
-<h1> Hello World </h1>
+<div class="container">
+  <h1>Data Users</h1>
+  <div class="jumbotron">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Username</th>
+          <th scope="col">Email</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <% @users.each do |user| %>
+        <tbody>
+          <tr>
+            <th scope="row"><%= user.id %></th>
+            <th><%= user.username %></th>
+            <th><%= user.email %></th>
+            <th><%= link_to("Delete", user, method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure?" }) %></th>
+            <th><%= link_to("Edit", edit_user_path(user.id), class: "btn btn-info") %></th>
+          </tr>
+        </tbody>
+      <% end %>
+    </table>
+  </div>
+</div>

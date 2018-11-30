@@ -1,11 +1,16 @@
 class UsersController < ApplicationController
 
   def index
-    
+    @users = User.all 
   end
 
   def new
     @user = User.new
+  end
+
+  def destroy
+    User.find(params[:id]).destroy
+    redirect_to users_url
   end
 
   def create
